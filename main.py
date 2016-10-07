@@ -627,7 +627,7 @@ def main():
             print(u'ip 被封，暂停 30 分钟')
             time.sleep(30 * 60)
         if len(zf.failedpage_list) == 0: # 爬取成功, 更新小区的状态为 y
-            xiaoqu.update_chengjiao_crawled(xq[0])
+            xiaoqu.update_zufang_crawled(xq[0])
             count += 1
             print u'已爬取 {}/{}\n'.format(str(count), str(len(result))),
         else:
@@ -637,7 +637,7 @@ def main():
             zf.start_thread_pool(zf.crawl, zf.failedpage_list)
             if len(zf.failedpage_list) == 0:
                 print(u'重新爬取成功！')
-                xiaoqu.update_chengjiao_crawled(xq[0])
+                xiaoqu.update_zufang_crawled(xq[0])
                 count += 1
                 print u'已爬取 {}/{}\n'.format(str(count), str(len(result))),
         del zf
